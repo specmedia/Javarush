@@ -17,17 +17,22 @@ public class Solution
 
         String sourceFileName = reader.readLine();
         String destinationFileName = reader.readLine();
-
+        try
+        {
         FileInputStream fileInputStream = new FileInputStream(sourceFileName);
         FileOutputStream fileOutputStream = new FileOutputStream(destinationFileName);
-
-        while (fileInputStream.available() > 0)
+            while (fileInputStream.available() > 0)
         {
             int data = fileInputStream.read();
             fileOutputStream.write(data);
         }
 
-        fileInputStream.close();
-        fileOutputStream.close();
+            fileInputStream.close();
+            fileOutputStream.close();}
+            catch (FileNotFoundException e)
+            {
+                System.out.println("Файл не существует.");
+            }
+
     }
 }
